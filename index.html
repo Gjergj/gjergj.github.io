@@ -1,71 +1,80 @@
-     <html itemscope itemtype="https://schema.org/QAPage" class="html__responsive " lang="en">
-      <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-    <head>
-    </head>
+<html itemscope itemtype="https://schema.org/QAPage" class="html__responsive " lang="en">
+<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 
-     <body>
-      <div id="fb-root"></div>
+<head>
+</head>
 
-      <div class="fb-messenger-checkbox"  
-      page_id=104543569309924
-      messenger_app_id=136702292642122
-      opt-in-type="transactional"
-      ref="heyHey"
-      allow_login="true"
-      size="standard"
-      skin="dark"
-      center_align="true">
-    
+<body>
+  <div id="fb-root"></div>
+
+  <div class="fb-messenger-checkbox" 
+  page_id=104543569309924
+  messenger_app_id=136702292642122
+  opt-in-type="transactional"
+  ref="heyHey"
+  allow_login="true"
+  size="standard"
+  skin="dark"
+  center_align="true">
+
     <button onclick="window.location.href='https://w3docs.com';">
       Click Here
     </button>
   </div>
-   
-    <!-- <div id="fb-customer-chat" class="fb-customerchat" >
+
+  <!-- <div id="fb-customer-chat" class="fb-customerchat" >
   </div> -->
-  
+
 </body>
-    <!-- <script>
+<!-- <script>
       var chatbox = document.getElementById('fb-customer-chat');
       chatbox.setAttribute("page_id", "104543569309924");
       chatbox.setAttribute("attribution", "biz_inbox");
       chatbox.setAttribute("ref", "eyJhY3Rpb24iOiJ1c2Vyc19jdGEiLCJpZGVudCI6ImQxMjM3OWMxZDYxMmM1NmI4ZWVkNjk3MDk5ZjI5YzU1In0=");
     </script> -->
-    
-    <script>
-      window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '136702292642122',
-        xfbml      : true,
-        version    : 'v16.0'
-      });
 
-      FB.Event.subscribe('xfbml.render', function(e) {
-        console.log("messenger_checkbox render event");
-        console.log(e);
-      });
-  
-      FB.Event.subscribe('auth.statusChange', function(e) {
-        console.log("messenger_checkbox render event");
-        console.log(e);
-      });
+<script>
+  function uuidv4() {
+    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+  }
+  var chatbox = document.getElementById('fb-messenger-checkbox');
+  chatbox.setAttribute("user_ref", uuidv4());
 
-      FB.Event.subscribe('messenger_checkbox', function(e) {
-        console.log("messenger_checkbox event");
-        console.log(e);
-      
-        if (e.event == 'rendered') {
-          console.log("Plugin was rendered");
-        } else if (e.event == 'checkbox') {
-          var checkboxState = e.state;
-          console.log("Checkbox state: " + checkboxState);
-        } else if (e.event == 'not_you') {
-          console.log("User clicked 'not you'");
-        } else if (e.event == 'hidden') {
-          console.log("Plugin was hidden");
-        }
-      });
-    }; 
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '136702292642122',
+      xfbml: true,
+      version: 'v16.0'
+    });
+
+    FB.Event.subscribe('xfbml.render', function (e) {
+      console.log("messenger_checkbox render event");
+      console.log(e);
+    });
+
+    FB.Event.subscribe('auth.statusChange', function (e) {
+      console.log("messenger_checkbox render event");
+      console.log(e);
+    });
+
+    FB.Event.subscribe('messenger_checkbox', function (e) {
+      console.log("messenger_checkbox event");
+      console.log(e);
+
+      if (e.event == 'rendered') {
+        console.log("Plugin was rendered");
+      } else if (e.event == 'checkbox') {
+        var checkboxState = e.state;
+        console.log("Checkbox state: " + checkboxState);
+      } else if (e.event == 'not_you') {
+        console.log("User clicked 'not you'");
+      } else if (e.event == 'hidden') {
+        console.log("Plugin was hidden");
+      }
+    });
+  };
 
       // window.fbAsyncInit = function() {
       //   FB.init({
@@ -81,4 +90,4 @@
       //   js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
       //   fjs.parentNode.insertBefore(js, fjs);
       // }(document, 'script', 'facebook-jssdk'));
-    </script>
+</script>
