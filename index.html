@@ -33,10 +33,16 @@
     <script>
       window.fbAsyncInit = function() {
       FB.init({
-        appId      : '104543569309924',
+        appId      : '197753903203627',
         xfbml      : true,
         version    : 'v16.0'
       });
+
+      FB.Event.subscribe('xfbml.render', function(e) {
+        console.log("messenger_checkbox render event");
+        console.log(e);
+      });
+    }; 
 
       FB.Event.subscribe('messenger_checkbox', function(e) {
         console.log("messenger_checkbox event");
