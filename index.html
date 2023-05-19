@@ -8,7 +8,8 @@
   <div id="fb-root"></div>
 
   <div id="fb-messenger-checkbox" class="fb-messenger-checkbox" page_id=104543569309924 messenger_app_id=136702292642122
-    opt-in-type="transactional" ref="heyHey" allow_login="true" size="standard" skin="dark" center_align="true">
+    opt-in-type="transactional" ref="heyHey" allow_login="true" size="standard" skin="dark" center_align="true"
+    user_ref="cd13f21c-f65c-11ed-b67e-0242ac120002">
   </div>
   <button onclick="window.location.href='https://w3docs.com';">
     Click Here
@@ -30,8 +31,8 @@
       (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
   }
-  var chatbox = document.getElementById('fb-messenger-checkbox');
-  chatbox.setAttribute("user_ref", uuidv4());
+  // var chatbox = document.getElementById('fb-messenger-checkbox');
+  // chatbox.setAttribute("user_ref", uuidv4());
 </script>
 
 <script>
