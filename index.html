@@ -16,13 +16,16 @@
    allow_login="true" 
    size="standard" 
    skin="light"
-   center_align="true"
-   user_ref="cd13f21c-f65c-11ed-b67e-0242ac">
+   center_align="true">
 </div>
 <input type="button" onclick="confirmOptIn()" value="Sign In"/>
 </body>
 
 <script>
+  var user_ref = "id" + Math.random().toString(16).slice(2)
+
+  var fb_checkbox = document.getElementById('fb-messenger-checkbox');
+  fb_checkbox.setAttribute("user_ref", user_ref);
 
   window.fbAsyncInit = function () {
     FB.init({
@@ -70,7 +73,7 @@
             'app_id':'246108449206886',
             'page_id':'101166416229868',
             'ref':'heyHey',
-            'user_ref':'cd13f21c-f65c-11ed-b67e-0242ac'
+            'user_ref':user_ref
           });
       };
       // window.fbAsyncInit = function() {
