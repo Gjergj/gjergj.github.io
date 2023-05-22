@@ -9,10 +9,8 @@
 
   <div id="fb-messenger-checkbox"
    class="fb-messenger-checkbox" 
-   page_id="101166416229868" 
    messenger_app_id="246108449206886"
    opt-in-type="transactional"
-   ref="eyJhY3Rpb24iOiJ1c2Vyc19jdGEiLCJpZGVudCI6IjkwNmY0ZDQzMTBjZjNkMzU3YWZlYWI2Y2YxMjJmMjgyIn0=" 
    allow_login="true" 
    size="standard" 
    skin="light"
@@ -23,10 +21,13 @@
 
 <script>
   var user_ref = "id" + Math.random().toString(16).slice(2)
-
+  var payload = "eyJhY3Rpb24iOiJ1c2Vyc19jdGEiLCJpZGVudCI6IjkwNmY0ZDQzMTBjZjNkMzU3YWZlYWI2Y2YxMjJmMjgyIn0=" 
+  var page_id = "101166416229868" 
   var fb_checkbox = document.getElementById('fb-messenger-checkbox');
   fb_checkbox.setAttribute("user_ref", user_ref);
-
+  fb_checkbox.setAttribute("ref", payload);
+  fb_checkbox.setAttribute("page_id", page_id);
+  
   window.fbAsyncInit = function () {
     FB.init({
       appId: '246108449206886',
@@ -71,7 +72,7 @@
   function confirmOptIn() {
           FB.CheckboxPlugin.confirm({
             'app_id':'246108449206886',
-            'page_id':'101166416229868',
+            'page_id':page_id,
             'ref':'heyHey',
             'user_ref':user_ref
           });
