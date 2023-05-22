@@ -17,7 +17,7 @@
    size="standard" 
    skin="light"
    center_align="true"
-   user_ref="cd13f21c-f65c-11ed-b67e-0242ac12">
+   user_ref="cd13f21c-f65c-11ed-b67e-0242ac1">
 </div>
 <button onclick="window.location.href='https://w3docs.com';">
   Click Here
@@ -68,7 +68,14 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-  
+  function confirmOptIn() {
+          FB.CheckboxPlugin.confirm({
+            'app_id':'246108449206886',
+            'page_id':'104543569309924',
+            'ref':'heyHey',
+            'user_ref':'cd13f21c-f65c-11ed-b67e-0242ac1'
+          });
+      };
       // window.fbAsyncInit = function() {
       //   FB.init({
       //     xfbml            : true,
