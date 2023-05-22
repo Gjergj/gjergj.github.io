@@ -9,7 +9,6 @@
 
   <div id="fb-messenger-checkbox"
    class="fb-messenger-checkbox" 
-   messenger_app_id="246108449206886"
    opt-in-type="promotional"
    allow_login="true" 
    size="standard" 
@@ -18,17 +17,19 @@
    promotional-topic="premier_league_promo_topic" 
    center_align="true">
 </div>
-<input type="button" onclick="confirmOptIn()" value="Sign In"/>
+<input type="button" id="submit_button" onclick="confirmOptIn()" value="Sign In"/>
 </body>
 
 <script>
   var user_ref = "id" + Math.random().toString(16).slice(2)
   var payload = "eyJhY3Rpb24iOiJ1c2Vyc19jdGEiLCJpZGVudCI6IjkwNmY0ZDQzMTBjZjNkMzU3YWZlYWI2Y2YxMjJmMjgyIn0=" 
   var page_id = "101166416229868" 
+  var messanger_app_id = "246108449206886"
   var fb_checkbox = document.getElementById('fb-messenger-checkbox');
   fb_checkbox.setAttribute("user_ref", user_ref);
   fb_checkbox.setAttribute("ref", payload);
   fb_checkbox.setAttribute("page_id", page_id);
+  fb_checkbox.setAttribute("messenger_app_id", messanger_app_id);
   
   window.fbAsyncInit = function () {
     FB.init({
@@ -73,11 +74,12 @@
 
   function confirmOptIn() {
           FB.CheckboxPlugin.confirm({
-            'app_id':'246108449206886',
+            'app_id':messanger_app_id,
             'page_id':page_id,
-            'ref':'heyHey',
+            'ref':payload,
             'user_ref':user_ref
           });
+          document.querySelector('#submit_button').innerText = 'Performed SignIn, refresh page to start again';
       };
       // window.fbAsyncInit = function() {
       //   FB.init({
